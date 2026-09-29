@@ -36,9 +36,24 @@ def _checar_opencv():
 
 
 def _detector():
-    caminho = cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
-    return cv2.CascadeClassifier(caminho)
-
+    # procura o arquivo em vários lugares possíveis
+    import os
+    candidatos = [
+        "haarcascade_frontalface_default.xml",  # pasta atual
+        os.path.join(os.path.dirname(__file__), "..", "haarcascade_frontalface_default.xml"),
+        os.path.join(os.path.dirname(__file__), "haarcascade_frontalface_default.xml"),
+        cv2.data.haarcascades + "haarcascade_frontalface_default.xml",
+    ]
+    for caminho in candidatos:
+        if os.path.isfile(caminho):
+            det = cv2.CascadeClassifier(caminho)
+            if not det.empty():
+                return det
+    # se nada funcionou, tenta o padrão (vai dar erro, mas avisa)
+    print("[!] ATENÇÃO: haarcascade_frontalface_default.xml não encontrado.")
+    print("[!] baixe de: https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_frontalface_default.xml")
+    print("[!] e coloque em:", os.getcwd())
+    return cv2.CascadeClassifier()
 
 # ---------- 1. DETECÇÃO SIMPLES ----------
 def face_detect():
