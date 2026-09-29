@@ -37,7 +37,7 @@ offsgrid2026
 Troque em `offsgrid/ascii_art.py`:
 
 ```python
-SENHA = "sua_senha_aqui"
+SENHA = "offsgrid2026"
 ```
 
 ---
