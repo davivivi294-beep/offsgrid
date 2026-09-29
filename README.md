@@ -68,6 +68,23 @@ SENHA = "offsgrid2026"
 | 15 | Logs | Logs "assustadores" com timestamp |
 
 ---
+### 🎥 Face Scan (real, educacional)
+
+| # | Ferramenta | Descrição |
+|---|---|---|
+| 16 | Detectar rosto | Abre a webcam e desenha um quadrado no rosto |
+| 17 | Cadastrar rosto | Tira uma foto e salva pra reconhecimento |
+| 18 | Reconhecer rosto | Compara webcam com a foto salva |
+
+> ⚠️ **Aviso:** isto **NÃO é Face ID**. É reconhecimento facial com webcam comum.
+> Face ID real usa sensor infravermelho + depth + chip dedicado.
+> Este módulo é educacional e **fácil de burlar com uma foto**.
+
+#### Instalação extra
+
+```bash
+pip install opencv-python opencv-contrib-python numpy
+
 
 ## 📁 Estrutura
 
