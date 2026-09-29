@@ -13,6 +13,7 @@ from .ferramentas import (
     ping_host, monitor_rede, gerar_payload_simulado,
 )
 from .simulacoes import sim_espelhamento, sim_monopoli, sim_logs
+from .face_scan import face_detect, face_cadastrar, face_reconhecer
 
 
 def tela_login():
@@ -68,6 +69,10 @@ def menu():
         print(f"  {AMARELO}[13]{RESET} espelhamento de tela (simulado)")
         print(f"  {AMARELO}[14]{RESET} exibir monopoli (simulado)")
         print(f"  {AMARELO}[15]{RESET} logs do sistema (simulado)")
+        print(f"  {CIANO}== FACE SCAN (REAL) =={RESET}")
+        print(f"  {VERDE}[16]{RESET} detectar rosto (webcam)")
+        print(f"  {VERDE}[17]{RESET} cadastrar meu rosto")
+        print(f"  {VERDE}[18]{RESET} reconhecer rosto")
         print(f"  {VERMELHO}[0]{RESET}  sair")
         print(VERDE_ESCURO + "─" * largura + RESET)
 
@@ -79,6 +84,7 @@ def menu():
             "7": dns_lookup, "8": http_probe, "9": qr_generator,
             "10": ping_host, "11": monitor_rede, "12": gerar_payload_simulado,
             "13": sim_espelhamento, "14": sim_monopoli, "15": sim_logs,
+            "16": face_detect, "17": face_cadastrar, "18": face_reconhecer,
         }
 
         if op == "0":
